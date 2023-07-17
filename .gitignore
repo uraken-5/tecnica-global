@@ -1,0 +1,51 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+*.idea/workspace.xml
+*.idea/tasks.xml
+*.idea/modules.xml
+*.idea/dictionaries
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+log/
+logs/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+*~
+
+# Compiled files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
