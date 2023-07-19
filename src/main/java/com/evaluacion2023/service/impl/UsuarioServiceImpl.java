@@ -44,9 +44,9 @@ public class UsuarioServiceImpl implements UsuarioService {
      */
     @Override
     public Map<String, Object> saveUser(UserDto userDTO) {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         User user = modelMapper.map(userDTO, User.class);
-        user.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
+        user.setPassword(encoder.encode(userDTO.getPassword()));
         user.setCreated(FormatDateNow.getActualDate());
         user.setLastLogin(FormatDateNow.getActualDate());
         user.setActive(true);
