@@ -60,4 +60,3 @@ La aplicación utiliza la biblioteca `ModelMapper` para mapear automáticamente 
 
 7. **Generar un JAR Ejecutable**: Si prefieres ejecutar la aplicación desde un JAR, utiliza el comando `./gradlew bootJar` para generar el JAR en el directorio `build/libs`. Ejecuta el JAR con `java -jar nombre-del-jar.jar` en la terminal.
 
-Recuerda proporcionar una documentación clara y detallada en tu repositorio, incluyendo instrucciones sobre cómo configurar el entorno, cómo ejecutar la aplicación y cómo probarla. También puedes incluir ejemplos de solicitudes HTTP que se pueden enviar a la API para probar diferentes funcionalidades. Esto ayudará a que otros puedan probar y entender tu aplicación de manera sencilla.
