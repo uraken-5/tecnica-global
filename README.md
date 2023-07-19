@@ -14,7 +14,13 @@ Una vez registrado, el usuario puede iniciar sesión en la aplicación enviando 
 
 El flujo normal de la aplicación se representa en el siguiente modelo:
 
-![Texto alternativo](img/diagrama_secuencia.png)
+![Diagrama_secuencia](img/diagrama_secuencia.png)
+
+## Diagrama de componentes
+
+Los componentes y la relacion entre sus interfaces de muestra en el siguiente diagrama. Se omiten las clases utilizarias y de excepciones por tema de espacio.
+
+![Diagrama_componentes](img/diagrama_componentes.png)
 
 ## Uso de Anotaciones de Validación y Manejo de Excepciones
 
