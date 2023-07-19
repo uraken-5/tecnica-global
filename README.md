@@ -10,6 +10,12 @@ Cuando un usuario desea registrarse, envía una solicitud HTTP al endpoint `/sig
 
 Una vez registrado, el usuario puede iniciar sesión en la aplicación enviando un token de autenticación en el encabezado `Authorization` al endpoint `/login`. El servidor verifica la validez del token y también comprueba si el token no ha sido revocado. Si el token es válido y no está revocado, el servidor actualiza el token del usuario y genera un nuevo token para la sesión actual. Luego, se devuelve una respuesta con los detalles del usuario y el nuevo token de sesión.
 
+## Diagrama de secuencia
+
+El flujo normal de la aplicación se representa en el siguiente modelo:
+
+![Texto alternativo](img/diagrama_secuencia.png)
+
 ## Uso de Anotaciones de Validación y Manejo de Excepciones
 
 El programa utiliza anotaciones de validación de Jakarta Bean Validation en el DTO `UserDto` para asegurarse de que los datos ingresados por el usuario sean válidos antes de guardarlos en la base de datos. Estas anotaciones se utilizan para validar el formato del correo electrónico y la contraseña, y también asegurarse de que los campos no estén vacíos (`@NotNull`). Si se incumplen las reglas de validación, se lanzará una excepción `MethodArgumentNotValidException`, que será manejada por el controlador `ExceptionHandlerController`.
