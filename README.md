@@ -16,20 +16,6 @@ El programa utiliza anotaciones de validación de Jakarta Bean Validation en el 
 
 El `ExceptionHandlerController` es una clase anotada con `@ControllerAdvice`, lo que le permite manejar todas las excepciones lanzadas desde los controladores en la aplicación. En esta clase, se definen métodos con la anotación `@ExceptionHandler` para manejar excepciones específicas que pueden ocurrir en el programa.
 
-- `handleException(Exception e)`: Maneja excepciones genéricas que no se han tratado explícitamente en otros métodos. Devuelve una respuesta HTTP con un código de estado 500 (Internal Server Error) y el mensaje de error.
-
-- `handleUserNotFoundException(UserNotFoundException e)`: Maneja la excepción `UserNotFoundException`, que ocurre cuando un usuario no se encuentra en la base de datos. Devuelve una respuesta HTTP con un código de estado 404 (Not Found) y el mensaje de error.
-
-- `handleInvalidRequestException(InvalidRequestException e)`: Maneja la excepción `InvalidRequestException`, que ocurre cuando una solicitud realizada por el usuario es inválida. Devuelve una respuesta HTTP con un código de estado 400 (Bad Request) y el mensaje de error.
-
-- `handleUserAlreadyExistsException(UserAlreadyExistsException e)`: Maneja la excepción `UserAlreadyExistsException`, que ocurre cuando se intenta registrar un usuario con un correo electrónico que ya está en la base de datos. Devuelve una respuesta HTTP con un código de estado 409 (Conflict) y el mensaje de error.
-
-- `handleTokenRevokedException(TokenRevokedException e)`: Maneja la excepción `TokenRevokedException`, que se lanza cuando el token de autenticación ha sido revocado y no es válido. Devuelve una respuesta HTTP con un código de estado 403 (Forbidden) y el mensaje de error.
-
-- `handleTokenErrorException(TokenErrorException e)`: Maneja la excepción `TokenErrorException`, que se lanza cuando se intenta autenticar con un token que ha sido revocado. Devuelve una respuesta HTTP con un código de estado 403 (Forbidden) y el mensaje de error.
-
-- `handleValidationException(MethodArgumentNotValidException ex)`: Maneja la excepción `MethodArgumentNotValidException`, que ocurre cuando falla la validación de los campos en el DTO `UserDto`. Convierte los errores de validación en una lista de objetos
-
 ## Beneficios del Uso de @ControllerAdvice y @ExceptionHandler
 
 - Centralización del Manejo de Excepciones: Gracias al uso de `@ControllerAdvice`, el manejo de excepciones se centraliza en la clase `ExceptionHandlerController`. Esto significa que no es necesario colocar bloques `try-catch` en cada uno de los controladores de la aplicación para manejar excepciones.
