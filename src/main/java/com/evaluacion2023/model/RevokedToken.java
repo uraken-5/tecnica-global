@@ -16,7 +16,6 @@ import lombok.Setter;
 public class RevokedToken {
     @Id
     private String token;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

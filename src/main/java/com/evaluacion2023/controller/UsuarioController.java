@@ -20,7 +20,6 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
     private final LoginService loginService;
-
     private final JwtToken jwtToken;
 
     public UsuarioController(UsuarioService usuarioService, LoginService loginService, JwtToken jwtToken) {
@@ -31,12 +30,12 @@ public class UsuarioController {
 
     @PostMapping("/sign-up")
     public ResponseEntity<Map<String, Object>> signUp(@RequestBody @Validated UserDto userDTO) {
-            Map<String, Object> response = usuarioService.saveUser(userDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        Map<String, Object> response = usuarioService.saveUser(userDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping("/login")
-    public ResponseEntity<Map<String, Object>> login(@Validated @RequestHeader("Authorization") String authorizationHeader){
+    public ResponseEntity<Map<String, Object>> login(@Validated @RequestHeader("Authorization") String authorizationHeader) {
         String token = jwtToken.extractTokenFromAuthorizationHeader(authorizationHeader);
         Map<String, Object> response = loginService.loginUser(token);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);

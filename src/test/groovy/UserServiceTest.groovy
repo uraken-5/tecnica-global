@@ -14,9 +14,7 @@ import org.springframework.context.support.StaticMessageSource
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import spock.lang.Specification
 
-
 class UserServiceTest extends Specification {
-
     UserRepository userRepository
     BCryptPasswordEncoder bCryptPasswordEncoder
     ModelMapper modelMapper
@@ -55,11 +53,10 @@ class UserServiceTest extends Specification {
         )
     }
 
-
     def "Guardar usuario exitosamente"() {
         given:
         def userDto = new UserDto(
-                name:"balto",
+                name: "balto",
                 password: "password",
                 email: "test@example.com",
                 phones: [
@@ -68,7 +65,7 @@ class UserServiceTest extends Specification {
                 ]
         )
 
-        def user = new User(name: userDto.name,password: userDto.password, email: userDto.email, phones: userDto.phones )
+        def user = new User(name: userDto.name, password: userDto.password, email: userDto.email, phones: userDto.phones)
         modelMapper.map(userDto, User.class) >> user
 
         def phoneList = userDto.phones.collect { phoneDto ->

@@ -32,12 +32,9 @@ public class User {
     private LocalDateTime created;
     private LocalDateTime lastLogin;
     private boolean isActive;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Phone> phones;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<RevokedToken> revokedTokens;
 
-    // Constructor, getters y setters
 }

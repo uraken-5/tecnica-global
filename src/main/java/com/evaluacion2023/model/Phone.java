@@ -23,7 +23,6 @@ public class Phone {
     private long number;
     private int cityCode;
     private String countryCode;
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

@@ -26,6 +26,7 @@ public class LoginServiceImpl implements LoginService {
         this.userRepository = userRepository;
         this.jwtToken = jwtToken;
     }
+
     @Override
     public Map<String, Object> loginUser(String token) {
         UUID userId = getUserIdFromToken(token);
@@ -39,7 +40,7 @@ public class LoginServiceImpl implements LoginService {
         // Actualiza el token para el usuario
         user.setId(user.getId());
         userRepository.save(user);
-        String newToken = jwtToken.generateJwtToken(user,jwtToken.getSecretKey());
+        String newToken = jwtToken.generateJwtToken(user, jwtToken.getSecretKey());
         revokeToken(token, user);
 
         Map<String, Object> response = getResponse(user);
@@ -95,5 +96,4 @@ public class LoginServiceImpl implements LoginService {
         user.getRevokedTokens().add(revokedToken);
         userRepository.save(user);
     }
-
 }

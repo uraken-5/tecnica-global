@@ -83,5 +83,4 @@ public class UsuarioServiceImpl implements UsuarioService {
         response.put(messageSource.getMessage("user.response.active", null, null), true);
         return response;
     }
-
 }

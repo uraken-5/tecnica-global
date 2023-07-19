@@ -8,29 +8,25 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.json.JsonSlurper
 import org.springframework.test.web.servlet.MockMvc
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import static org.springframework.http.HttpStatus.*
 import spock.lang.Specification
 import org.springframework.http.MediaType
-import org.springframework.http.HttpStatus;
-
-
-
+import org.springframework.http.HttpStatus
 
 class UserControllerSpec extends Specification {
     def usuarioService = Mock(UsuarioService)
     def loginService = Mock(LoginServiceImpl)
     def jwtToken = Mock(JwtToken)
     def usuarioController = new UsuarioController(usuarioService, loginService, jwtToken)
-    ObjectMapper objectMapper = new ObjectMapper();
+    ObjectMapper objectMapper = new ObjectMapper()
 
     MockMvc mockMvc = standaloneSetup(usuarioController).build()
-
 
     def "Test signUp method"() {
         given:
         UserDto userDto = new UserDto(
-                name:"balto",
+                name: "balto",
                 email: "test@example.com",
                 password: "Cata1c90",
                 phones: [
@@ -45,7 +41,6 @@ class UserControllerSpec extends Specification {
                 .content(objectMapper.writeValueAsString(userDto)))
                 .andReturn()
                 .response
-
 
         then:
         //response.status == HttpStatus.BAD_REQUEST.value()
