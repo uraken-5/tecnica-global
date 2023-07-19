@@ -47,8 +47,7 @@ public class LoginServiceImpl implements LoginService {
         return response;
     }
 
-    private UUID getUserIdFromToken(String token) {
-        // Valida y verifica el token JWT
+    public UUID getUserIdFromToken(String token) {
         try {
             Claims claims = Jwts.parserBuilder()
                     .setSigningKey(jwtToken.getSecretKey())

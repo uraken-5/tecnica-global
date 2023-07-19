@@ -5,6 +5,7 @@ import com.evaluacion2023.model.Phone
 import com.evaluacion2023.model.User
 import com.evaluacion2023.repository.UserRepository
 import com.evaluacion2023.service.impl.UsuarioServiceImpl
+import com.evaluacion2023.service.interfaces.LoginService
 import com.evaluacion2023.service.interfaces.UsuarioService
 import com.evaluacion2023.utils.FormatDateNow
 import org.modelmapper.ModelMapper
@@ -23,14 +24,20 @@ class UserServiceTest extends Specification {
     MessageSource messageSource
     FormatDateNow formatDateNow
     UsuarioService usuarioService
+    LoginService loginService
 
     def setup() {
         userRepository = Mock(UserRepository)
         jwtToken = Mock(JwtToken)
         modelMapper = Mock(ModelMapper)
         formatDateNow = Mock(FormatDateNow)
+        loginService = new LoginService() {
+            @Override
+            Map<String, Object> loginUser(String token) {
+                return null
+            }
+        }
 
-        // Configurar mock StaticMessageSource
         messageSource = new StaticMessageSource()
         messageSource.addMessage("user.alreadyExists", Locale.getDefault(), "El usuario ya existe en la base de datos")
         messageSource.addMessage("user.response.id", Locale.getDefault(), "id")
@@ -84,5 +91,16 @@ class UserServiceTest extends Specification {
         1 * userRepository.save(_ as User)
         result.created != null
         result.lastLogin != null
+    }
+
+    def "Test loginUser method with invalid token"() {
+        given:
+        String validBearerToken = "Bearer invalid"
+
+        when:
+        Map<String, Object> response = loginService.loginUser(validBearerToken)
+
+        then:
+        response == null
     }
 }

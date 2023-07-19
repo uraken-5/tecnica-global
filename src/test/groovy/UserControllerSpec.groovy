@@ -24,7 +24,6 @@ class UserControllerSpec extends Specification {
     def usuarioController = new UsuarioController(usuarioService, loginService, jwtToken)
     ObjectMapper objectMapper = new ObjectMapper();
 
-    //The magic happens here
     MockMvc mockMvc = standaloneSetup(usuarioController).build()
 
 
@@ -33,7 +32,7 @@ class UserControllerSpec extends Specification {
         UserDto userDto = new UserDto(
                 name:"balto",
                 email: "test@example.com",
-                password: "password",
+                password: "Cata1c90",
                 phones: [
                         new PhoneDto(number: 123456789, cityCode: 123, countryCode: "USD"),
                         new PhoneDto(number: 987654321, cityCode: 321, countryCode: "CL")
@@ -49,6 +48,22 @@ class UserControllerSpec extends Specification {
 
 
         then:
-        response.status == HttpStatus.BAD_REQUEST.value()
+        //response.status == HttpStatus.BAD_REQUEST.value()
+        response.status == HttpStatus.CREATED.value()
+    }
+
+    def "Test login method"() {
+        given:
+        String validBearerToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNWVjZmUzNy1mMjVhLTRhYTUtOTIyNC1mZjlhNjc3MWJkMDUiLCJuYW1lIjoiYmFsdG8iLCJlbWFpbCI6ImNvcnJlbzNAY29ycmVvMy5jbCIsImlhdCI6MTY4OTY5MzgxOSwiZXhwIjoxNjg5NzAxMDE5fQ.CxydctZrHqFVk0p-ev1lvbi-TsM594e1Ln5esomdWEc"
+
+        when:
+        def response = mockMvc.perform(get("/login")
+                .header("Authorization", validBearerToken))
+                .andReturn()
+                .response
+
+        then:
+        // Aquí agregamos la aserción para verificar que el código de estado es 202 (HttpStatus.ACCEPTED.value())
+        response.status == HttpStatus.ACCEPTED.value()
     }
 }
