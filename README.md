@@ -1,4 +1,7 @@
-# Descripción del Programa de Gestión de Usuarios con Autenticación Basada en Tokens
+# Descripción del Programa de Gestión de Usuarios con Autenticación Basada en Tokens para GlobalLogic
+
+## Postulante: Jorge Carmona 
+## Diagramas: /img
 
 Este programa es una aplicación desarrollada en **Spring Boot** para la gestión de usuarios con autenticación basada en tokens. Su objetivo principal es permitir a los usuarios registrarse (*sign-up*) y autenticarse (*login*) para acceder a ciertos recursos protegidos dentro de la aplicación.
 
