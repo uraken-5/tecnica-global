@@ -11,14 +11,14 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/release' } // Agregamos el repositorio de Lombok
+	maven { url 'https://repo.spring.io/release' }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.5' // Usamos una versión compatible con Java 8
-	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5' // Usamos una versión compatible con Java 8
-	implementation 'jakarta.validation:jakarta.validation-api:2.0.2' // Versión compatible con Java 8
-	implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final' // Versión compatible con Java 8
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.5'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
+	implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
+	implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final'
 	implementation 'org.modelmapper:modelmapper:2.4.4'
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
@@ -28,14 +28,14 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-crypto:5.7.2'
 	implementation 'org.ow2.asm:asm:9.0'
 
-	compileOnly 'org.projectlombok:lombok:1.18.20' // Agregamos la versión específica de Lombok
-	runtimeOnly 'com.h2database:h2:1.4.200' // Agregamos la versión específica de H2
-	annotationProcessor 'org.projectlombok:lombok:1.18.20' // Agregamos la versión específica de Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	runtimeOnly 'com.h2database:h2:1.4.200'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5' // Agregamos la versión compatible con Java 8 para las pruebas
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
 	testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
 	testImplementation 'org.codehaus.groovy:groovy-all:3.0.9'
-	testImplementation 'org.jmockit:jmockit:1.49' // Reemplaza la versión con la más reciente disponible
+	testImplementation 'org.jmockit:jmockit:1.49'
 }
 
 tasks.named('test') {
