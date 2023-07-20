@@ -58,3 +58,48 @@ La aplicación utiliza la biblioteca `ModelMapper` para mapear automáticamente 
 
 7. **Generar un JAR Ejecutable**: Si prefieres ejecutar la aplicación desde un JAR, utiliza el comando `./gradlew bootJar` para generar el JAR en el directorio `build/libs`. Ejecuta el JAR con `java -jar nombre-del-jar.jar` en la terminal.
 
+## Endpoints
+
+### 1. Sign-up Endpoint
+- Descripción: Este endpoint se utiliza para registrar un nuevo usuario en el sistema.
+- Método: POST
+- URL: `http://localhost:8080/sign-up`
+- JSON de Ejemplo:
+
+Curl de prueba
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+  "name": "balto2",
+  "email": "test2@example.com",
+  "password": "Cata1c90",
+  "phones": [
+    {
+      "number": 1234567890,
+      "cityCode": 321,
+      "countryCode": "CL"
+    },
+    {
+      "number": 986473637,
+      "cityCode": 999,
+      "countryCode": "PR"
+    }
+  ]
+}' http://localhost:8080/sign-up
+```
+
+## 2. Login Endpoint
+
+-   Descripcion: Este endpoint se utiliza para realizar la autenticación y obtener acceso al sistema.
+
+- Mètodo: GET
+
+- Url: `http://localhost:8080/login`
+
+### Encabezado requerido
+"Authorization" con el valor del token de autorización válido.
+
+### Comando `curl`
+```bash
+curl -X GET -H "Authorization: tu_token_autorizador" http://localhost:8080/login
+
