@@ -5,6 +5,24 @@
 
 Este programa es una aplicación desarrollada en **Spring Boot** para la gestión de usuarios con autenticación basada en tokens. Su objetivo principal es permitir a los usuarios registrarse (*sign-up*) y autenticarse (*login*) para acceder a ciertos recursos protegidos dentro de la aplicación.
 
+## Tecnologías y Dependencias
+
+| Tecnología/Dependencia                   | Versión         |
+| ---------------------------------------- | --------------- |
+| Java                                     | 1.8             |
+| Groovy                                   | 3.0.9           |
+| Spring Boot Starter Data JPA             | 2.5.5           |
+| Spring Boot Starter Web                  | 2.5.5           |
+| Jakarta Validation API                   | 2.0.2           |
+| Hibernate Validator                      | 6.2.0.Final     |
+| ModelMapper                              | 2.4.4           |
+| Spring Security Crypto                   | 5.7.2           |
+| Lombok                                   | 1.18.20         |
+| H2 Database                              | 1.4.200         |
+| Spock Core                               | 2.0-groovy-3.0  |
+| JMockit                                  | 1.49            |
+
+
 ## Registro de Usuarios
 
 Cuando un usuario desea registrarse, envía una solicitud HTTP al endpoint `/sign-up` proporcionando su información personal, como nombre, correo electrónico, contraseña y detalles de teléfono. La información recibida es validada y luego se almacena en una base de datos. Si el correo electrónico ya está registrado previamente, se produce una excepción para evitar registros duplicados.

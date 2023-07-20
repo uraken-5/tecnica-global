@@ -2,10 +2,12 @@ package com.evaluacion2023.dto;
 
 import java.util.List;
 
-import jakarta.validation.constraints.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Data
 @Getter
