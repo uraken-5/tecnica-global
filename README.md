@@ -75,7 +75,7 @@ Curl de prueba
 curl -X POST -H "Content-Type: application/json" -d '{
   "name": "balto2",
   "email": "test2@example.com",
-  "password": "Cata1c90",
+  "password": "Mtrq1c90",
   "phones": [
     {
       "number": 1234567890,
