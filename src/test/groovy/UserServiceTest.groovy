@@ -7,7 +7,6 @@ import com.evaluacion2023.repository.UserRepository
 import com.evaluacion2023.service.impl.UsuarioServiceImpl
 import com.evaluacion2023.service.interfaces.LoginService
 import com.evaluacion2023.service.interfaces.UsuarioService
-import com.evaluacion2023.utils.FormatDateNow
 import org.modelmapper.ModelMapper
 import org.springframework.context.MessageSource
 import org.springframework.context.support.StaticMessageSource
@@ -20,7 +19,6 @@ class UserServiceTest extends Specification {
     ModelMapper modelMapper
     JwtToken jwtToken
     MessageSource messageSource
-    FormatDateNow formatDateNow
     UsuarioService usuarioService
     LoginService loginService
 
@@ -28,7 +26,6 @@ class UserServiceTest extends Specification {
         userRepository = Mock(UserRepository)
         jwtToken = Mock(JwtToken)
         modelMapper = Mock(ModelMapper)
-        formatDateNow = Mock(FormatDateNow)
         loginService = new LoginService() {
             @Override
             Map<String, Object> loginUser(String token) {
@@ -48,8 +45,7 @@ class UserServiceTest extends Specification {
                 userRepository,
                 modelMapper,
                 jwtToken,
-                messageSource,
-                formatDateNow
+                messageSource
         )
     }
 

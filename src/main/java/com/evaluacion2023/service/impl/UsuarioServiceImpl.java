@@ -25,15 +25,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     private final UserRepository userRepository;
     private final JwtToken jwtToken;
     private final ModelMapper modelMapper;
-    private final FormatDateNow formatDateNow;
     private final MessageSource messageSource;
 
-    public UsuarioServiceImpl(UserRepository userRepository, ModelMapper modelMapper, JwtToken jwtToken, MessageSource messageSource, FormatDateNow formatDateNow) {
+    public UsuarioServiceImpl(UserRepository userRepository, ModelMapper modelMapper, JwtToken jwtToken, MessageSource messageSource) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.jwtToken = jwtToken;
         this.messageSource = messageSource;
-        this.formatDateNow = formatDateNow;
     }
 
     /**
