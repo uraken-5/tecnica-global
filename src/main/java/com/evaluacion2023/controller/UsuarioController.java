@@ -1,17 +1,14 @@
 package com.evaluacion2023.controller;
 
-import com.evaluacion2023.config.exceptions.InvalidRequestException;
 import com.evaluacion2023.config.security.JwtToken;
 import com.evaluacion2023.dto.UserDto;
 import com.evaluacion2023.service.interfaces.LoginService;
 import com.evaluacion2023.service.interfaces.UsuarioService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.Map;
 
 @RestController

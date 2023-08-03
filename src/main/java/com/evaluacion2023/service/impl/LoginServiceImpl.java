@@ -9,7 +9,6 @@ import com.evaluacion2023.model.RevokedToken;
 import com.evaluacion2023.model.User;
 import com.evaluacion2023.repository.UserRepository;
 import com.evaluacion2023.service.interfaces.LoginService;
-import com.evaluacion2023.config.exceptions.CustomError;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.stereotype.Service;
