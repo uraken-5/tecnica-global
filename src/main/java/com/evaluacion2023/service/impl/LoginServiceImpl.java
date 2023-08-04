@@ -26,6 +26,15 @@ public class LoginServiceImpl implements LoginService {
         this.jwtToken = jwtToken;
     }
 
+    /**
+     * Realiza el inicio de sesión de un usuario utilizando un token JWT.
+     *
+     * @param token El token JWT proporcionado por el cliente al iniciar sesión.
+     * @return Un mapa con la información del usuario y el nuevo token JWT generado.
+     * @throws TokenErrorException Si el token es inválido o ha expirado.
+     * @throws TokenRevokedException Si el token anterior ha sido revocado y es inválido.
+     * @throws UserNotFoundException Si no se encuentra el usuario asociado al token.
+     */
     @Override
     public Map<String, Object> loginUser(String token) {
         UUID userId = getUserIdFromToken(token);
@@ -47,6 +56,13 @@ public class LoginServiceImpl implements LoginService {
         return response;
     }
 
+    /**
+     * Obtiene el ID del usuario a partir del token JWT proporcionado.
+     *
+     * @param token El token JWT proporcionado por el cliente.
+     * @return El ID del usuario extraído del token.
+     * @throws TokenErrorException Si el token es inválido o ha expirado.
+     */
     public UUID getUserIdFromToken(String token) {
         try {
             Claims claims = Jwts.parserBuilder()
@@ -62,6 +78,12 @@ public class LoginServiceImpl implements LoginService {
         }
     }
 
+    /**
+     * Construye un mapa con la información del usuario para ser devuelto en la respuesta.
+     *
+     * @param user El objeto User que contiene la información del usuario.
+     * @return Un mapa con los detalles del usuario.
+     */
     private Map<String, Object> getResponse(User user) {
         Map<String, Object> response = new LinkedHashMap<>();
         response.put("id", user.getId().toString());
@@ -83,11 +105,26 @@ public class LoginServiceImpl implements LoginService {
         return response;
     }
 
+
+    /**
+     * Verifica si el token proporcionado ha sido revocado para el usuario dado.
+     *
+     * @param token El token JWT proporcionado por el cliente.
+     * @param user  El objeto User asociado al token.
+     * @return true si el token está revocado para el usuario, false de lo contrario.
+     */
     private boolean isTokenRevoked(String token, User user) {
         List<RevokedToken> revokedTokens = user.getRevokedTokens();
         return revokedTokens.stream().anyMatch(t -> t.getToken().equals(token));
     }
 
+
+    /**
+     * Revoca el token anterior del usuario y guarda el nuevo token generado.
+     *
+     * @param token El token JWT anterior que se debe revocar.
+     * @param user  El objeto User al que se asocia el token.
+     */
     private void revokeToken(String token, User user) {
         RevokedToken revokedToken = new RevokedToken();
         revokedToken.setToken(token);

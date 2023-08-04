@@ -79,8 +79,6 @@ public class ExceptionHandlerController {
     }
 
 
-
-
     /**
      * Maneja la excepción MethodArgumentNotValidException y devuelve una respuesta con código de estado 400 (Bad Request).
      * Además, convierte los errores de validación en una lista de objetos CustomError. Se arma el custom error de forma

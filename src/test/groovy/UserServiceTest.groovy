@@ -10,12 +10,10 @@ import com.evaluacion2023.service.interfaces.UsuarioService
 import org.modelmapper.ModelMapper
 import org.springframework.context.MessageSource
 import org.springframework.context.support.StaticMessageSource
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import spock.lang.Specification
 
 class UserServiceTest extends Specification {
     UserRepository userRepository
-    BCryptPasswordEncoder bCryptPasswordEncoder
     ModelMapper modelMapper
     JwtToken jwtToken
     MessageSource messageSource

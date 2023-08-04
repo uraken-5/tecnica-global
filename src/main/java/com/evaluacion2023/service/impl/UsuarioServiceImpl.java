@@ -66,11 +66,24 @@ public class UsuarioServiceImpl implements UsuarioService {
         return response;
     }
 
+    /**
+     * Verifica si ya existe un usuario en la base de datos con el mismo correo electrónico.
+     *
+     * @param email El correo electrónico del usuario a verificar.
+     * @return true si el usuario con el correo electrónico ya existe, false en caso contrario.
+     */
     private boolean userExists(String email) {
         User user = userRepository.findByEmail(email);
         return user != null;
     }
 
+
+    /**
+     * Construye un mapa con la información del usuario recién guardado.
+     *
+     * @param user El objeto User que representa al usuario guardado.
+     * @return Un mapa con los detalles del usuario, incluido el token JWT generado.
+     */
     private Map<String, Object> getResponse(User user) {
         String token = jwtToken.generateJwtToken(user, jwtToken.getSecretKey());
         Map<String, Object> response = new HashMap<>();
